@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Test and improve your typing speed with our interactive typing speed test">
+    <title>TypeRacer - Typing Speed Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>TypeRacer</h1>
+            <p class="subtitle">Test Your Typing Speed</p>
+        </header>
+
+        <main class="main-content">
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-label">WPM</div>
+                    <div class="stat-value" id="wpm">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Accuracy</div>
+                    <div class="stat-value" id="accuracy">100%</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Time</div>
+                    <div class="stat-value" id="timer">60s</div>
+                </div>
+            </div>
+
+            <div class="text-display-container">
+                <div class="text-display" id="textDisplay"></div>
+            </div>
+
+            <div class="input-container">
+                <textarea 
+                    id="textInput" 
+                    class="text-input" 
+                    placeholder="Click here to start typing..."
+                    disabled
+                ></textarea>
+            </div>
+
+            <div class="controls">
+                <button id="startBtn" class="btn btn-primary">Start Test</button>
+                <button id="resetBtn" class="btn btn-secondary">Reset</button>
+            </div>
+
+            <div class="results" id="results" style="display: none;">
+                <h2>Results</h2>
+                <div class="result-stats">
+                    <div class="result-item">
+                        <span class="result-label">Words Per Minute:</span>
+                        <span class="result-value" id="finalWpm">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Accuracy:</span>
+                        <span class="result-value" id="finalAccuracy">0%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Characters Typed:</span>
+                        <span class="result-value" id="finalChars">0</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 TypeRacer. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
