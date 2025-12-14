@@ -2,12 +2,16 @@
     const startBtn = document.getElementById("start-btn");
     const stopBtn = document.getElementById("stop-btn");
     const retryBtn = document.getElementById("retry-btn");
+    const instructionsBtn = document.getElementById("instructions-btn");
     const input = document.getElementById("test-input");
     const wpmEl = document.getElementById("wpm");
     const resultLevelEl = document.getElementById("result-level");
     const resultTimeEl = document.getElementById("result-time");
     const quoteEl = document.getElementById("quote-display");
     const difficultySelect = document.getElementById("difficulty-select");
+    const instructionsModal = new bootstrap.Modal(
+        document.getElementById("instructionsModal")
+    );
 
     const quotes = {
         easy: [
@@ -35,6 +39,7 @@
 
     let timerInterval = null;
     let startTime = null;
+    let testInProgress = false;
 
     const getRandomQuote = (difficulty) => {
         const quoteList = quotes[difficulty] || quotes.easy;
@@ -79,17 +84,17 @@
 
     const start = () => {
         if (timerInterval) return;
+        testInProgress = true;
         startTime = Date.now();
         timerInterval = setInterval(() => {
             if (!startTime) return;
             const elapsed = Date.now() - startTime;
             updateStats(elapsed);
         }, 250);
-        input.removeAttribute("disabled");
-        input.focus();
     };
 
     const stop = () => {
+        testInProgress = false;
         if (timerInterval) {
             clearInterval(timerInterval);
             timerInterval = null;
@@ -109,13 +114,30 @@
             difficultySelect.value.charAt(0).toUpperCase() +
             difficultySelect.value.slice(1);
         startTime = null;
+        testInProgress = false;
         setNewQuote();
         input.focus();
     };
 
+    // Auto-start on first keystroke
+    input?.addEventListener("input", (e) => {
+        if (!testInProgress && input.value.length > 0) {
+            start();
+        }
+    });
+
+    // Stop on Enter key
+    input?.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            stop();
+        }
+    });
+
     startBtn?.addEventListener("click", start);
     stopBtn?.addEventListener("click", stop);
     retryBtn?.addEventListener("click", retry);
+    instructionsBtn?.addEventListener("click", () => instructionsModal.show());
     difficultySelect?.addEventListener("change", setNewQuote);
 
     // Set initial random quote
