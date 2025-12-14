@@ -1,0 +1,200 @@
+/* Base theme and typography */
+:root {
+    --brand-orange: #ff8400;
+    --ink: #1f1f1f;
+    --muted: #6c757d;
+    --surface: #ffffff;
+    --border: #ffd7a6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Nunito", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: #f7f7f7;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Alegreya", "Nunito", serif;
+    color: var(--ink);
+}
+
+.letter-spaced {
+    letter-spacing: 0.12em;
+}
+
+.tr-header {
+    background: var(--brand-orange);
+    color: #fff;
+    text-align: center;
+}
+
+.tr-header .brand {
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+}
+
+.instructions-text {
+    background: #ffffff;
+    color: #000000;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.instructions-box {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.instructions-box p {
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #00e091;
+    box-shadow: 0 0 0 4px rgba(0, 224, 145, 0.2);
+}
+
+.tr-card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.result-card {
+    border: 3px solid rgba(255, 132, 0, 0.6);
+}
+
+.quote-box {
+    background: #ffffff;
+    border: 1px solid #d1d1d1;
+    color: var(--ink);
+}
+
+.stat p {
+    margin-bottom: 0;
+}
+
+.badge.border {
+    border-color: var(--border) !important;
+}
+
+textarea.form-control {
+    border-radius: 12px;
+    border-color: #d1d1d1;
+}
+
+textarea.form-control:focus {
+    border-color: #d1d1d1;
+    box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.08);
+}
+
+.tr-btn {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid var(--brand-orange);
+    border-radius: 10px;
+    padding: 0.45rem 1.1rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.tr-btn:hover,
+.tr-btn:focus {
+    background: var(--brand-orange);
+    color: #ffffff;
+    border-color: var(--brand-orange);
+    box-shadow: 0 0 0 0.15rem rgba(255, 132, 0, 0.35);
+}
+
+.tr-btn:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 992px) {
+    .tr-header .brand {
+        font-size: 2rem;
+    }
+
+    .instructions-text {
+        font-size: 0.95rem;
+    }
+
+    .tr-card .card-body {
+        padding: 1.25rem;
+    }
+
+    .quote-box p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tr-header .container {
+        align-items: center !important;
+    }
+
+    .tr-header .brand {
+        font-size: 1.75rem;
+    }
+
+    .instructions-text {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .card-body .d-flex.flex-wrap {
+        gap: 0.5rem;
+    }
+
+    .form-floating textarea {
+        min-height: 120px;
+    }
+
+    .badge.bg-dark {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding: 0 0.75rem;
+    }
+
+    .row.g-4 {
+        row-gap: 1.5rem;
+    }
+
+    .badge.bg-light {
+        font-size: 0.75rem;
+    }
+
+    .quote-box {
+        padding: 0.75rem;
+    }
+
+    .quote-box p {
+        font-size: 0.95rem;
+    }
+}
